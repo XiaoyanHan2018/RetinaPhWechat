@@ -1,5 +1,5 @@
 <h2>RetinaPhWechat (Not published online)</h2>
-The service solution for referral reviewers in the retina examination appointment referral solution system makes it easy and convenient for reviewers to query/update/maintain records of referral appointments within their permissions.<br/>
+The service solution for referral reviewers in the referral audit system makes it easy and convenient for reviewers to query/update/maintain records of referral appointments within their permissions.<br/>
 (眼底检查预约转诊解决方案体系中针对转诊审核人的服务解决方案，主旨使审核人可以轻松便捷地查询/更新/维护其权限范畴内可操作的转诊预约)<br/>
 
 ## Introduction
