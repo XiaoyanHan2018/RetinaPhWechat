@@ -1,0 +1,19 @@
+#day-con.day-con
+  .day-info-card
+    span.year(data-bind='dataModel.sel_day.year' data-formatter='formatYear')
+    span.month(data-bind='dataModel.sel_day.month' data-formatter='formatMonth')
+    span.day(data-bind='dataModel.sel_day.day' data-formatter='formatDay')
+    .detail-info
+      .left-area
+        span.available-am(data-bind='i18n.calendar.day.mroning')
+        span.available-am-sum(data-bind='dataModel.sel_day.am')
+        span.unit(data-bind='i18n.calendar.unit')
+        span.state-txt(data-bind='i18n.state.confirmed')
+      .right-area
+        span.available-pm(data-bind='i18n.calendar.day.afternoon')
+        span.available-pm-sum(data-bind='dataModel.sel_day.pm')
+        span.unit(data-bind='i18n.calendar.unit')
+        span.state-txt(data-bind='i18n.state.confirmed')
+  .day-list-con
+    .mask-layer
+    include ./template/list.pug

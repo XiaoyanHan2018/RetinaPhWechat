@@ -1,0 +1,66 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name="format-detection" content="telephone=no")
+  title Voxelcloud Retina Wechat
+  meta(name='viewport', content='initial-scale=1, maximum-scale=1')
+  //- link(rel='shortcut icon', href='images/13995605.jpg')
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black')
+  link(rel='stylesheet', href='./css/iconfont.css')
+  link(rel='stylesheet', href='./css/main.css')
+
+body(lang='zh' onload='voxelcloudI18n.onloadRPLC()')
+  #bg.bg
+  #popup.popup
+  header.shell-header
+    #shell-header-title.header-area.header-middle-area(data-bind='i18n.shell.header.title') ${i18n.shell.header.title}
+    .header-area.header-left-area
+      a#btn-back.back
+        i.iconfont.icon-ic_arrow_back_px
+        span(data-bind='i18n.shell.header.btn.back') ${i18n.shell.header.btn.back}
+    #header-right-area.header-area.header-right-area
+      a#btn-next.skip.header-area(data-bind='i18n.shell.header.btn.skip') ${i18n.shell.header.btn.skip}
+      //- #location.location
+      //-   i.iconfont.icon-ic_location_on_px
+      //-   span(data-bind='dataModel.userRecord.location')
+  .loading
+    span(data-bind='i18n.loading')  ${i18n.loading}
+  #main-con.main-con
+    .header-shadow
+    #header-shadow-mask.header-shadow-mask
+      .main-con-mask
+    .main-con-content
+      .main-con-mask
+      #page-con.page-con
+        .page.page-cur
+        .page.page-tgt
+  #main-con-footer.main-con-footer
+    #msg-toast.msg-toast
+      i.iconfont
+      .msg-toast-txt
+      .msg-toat-action-bar
+    .nav-btn.selected(nav-path='/home')
+      i.iconfont.icon-ic_home_px
+      .span(data-bind='i18n.home.nav.home') ${i18n.home.nav.home}
+    //- .nav-btn
+    //-   i.iconfont.icon-ic_widgets_px
+    //-   .span(data-bind='i18n.home.nav.mf') ${i18n.home.nav.mf}
+    .nav-btn(nav-path='/setting')
+      i.iconfont.icon-ic_settings_applicat
+      .span(data-bind='i18n.home.nav.preferences') ${i18n.home.nav.preferences}
+  include views/template/apptDetail.pug
+script(type="text/javascript" src="./components/polyfill.js")
+script(type='text/javascript', src='./i18n/en.js', charset='utf-8')
+script(type='text/javascript', src='./i18n/zh.js', charset='utf-8')
+script(type='text/javascript', src='./components/components-min.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/i18n.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/dataModel.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/router.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/requests.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/utility.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/sandwichPIC.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/calendar.js', charset='utf-8')
+//- script(type='text/javascript', src='./components/zDateSel.js', charset='utf-8')
+include views/template/messageBox.pug

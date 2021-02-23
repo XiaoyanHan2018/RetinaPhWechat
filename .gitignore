@@ -1,0 +1,26 @@
+# Dependency directory
+node_modules
+
+# Ignore built ts files
+dist/**/*
+
+# ignore package-lock.json
+package-lock.json
+yarn.lock
+
+# ignore the mock data
+mockData/records.json
+mockData/user.json
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/dist
+
+# misc
+.idea
+.vscode

@@ -1,0 +1,51 @@
+// import library
+@Library('voxelcloud-jenkins-lib@v1.0') _
+
+node {
+    label 'model-scm'
+    
+    def additionalInfo = ''
+
+    try {
+        /*
+        Checkout and build front end
+        */
+        stage('Checkout') {
+            // checkout default repository for this build
+            checkoutDefaultRepo()
+        }
+
+        // build front end
+        stage('Install') {
+            nodejs('nodejs12.18') {
+                sh 'npm install'
+        //      sh 'npm run-script build'
+                }
+        }
+
+        def buildName = getBuildName()
+        def webServerDockerImageName = "voxelcloud/retina-wechat-doctor:${buildName}"
+        def dockerImageWebServer
+        stage('Build-Frontend') {
+            dockerImageWebServer = buildDockerImage(webServerDockerImageName)
+        }
+
+        // publish docker images
+        stage('Publish-Image') {
+            pushDockerImage(dockerImageWebServer)
+        }
+
+        additionalInfo = "Docker Images: ${webServerDockerImageName}"
+    } catch (e) {
+        currentBuild.result = "FAILED"
+        throw e
+    } finally {
+        // send email to notify developers
+        notifyBuild(currentBuild.result == 'FAILED' ? '' : additionalInfo)
+        if (currentBuild.result != 'FAILED') {
+            def buildName = getBuildName()
+            sh "curl -H 'Content-Type: application/json' -X POST -d '{\"tag\": \"$buildName\", \"repo\":\"retina-wechat-doctor\"}' http://101.132.135.97:9000/docker/api/deploy | echo"
+        }
+
+    }
+}

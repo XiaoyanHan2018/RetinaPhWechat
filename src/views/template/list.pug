@@ -1,0 +1,15 @@
+.loading-layer
+  img(src='./images/loading.gif')
+.list-header
+  .sate-selector
+    span(data-bind='dataModel.filter.state.home.key' data-formatter='formatListSelectedState')
+    i.iconfont.icon-ic_arrow_drop_down_
+    ul.filter-selector
+      li(data-bind='i18n.state.new' stateKey='1') ${i18n.state.new}
+      li(data-bind='i18n.state.confirmed'  stateKey='2') ${i18n.state.confirmed}
+      li(data-bind='i18n.state.visited' stateKey='3') ${i18n.state.visited}
+      li(data-bind='i18n.state.expired' stateKey='4') ${i18n.state.expired}
+  .actions
+    span.refresh-list-btn.iconfont.icon-ic_refresh_px
+.list-main-con
+  ul.list-ul

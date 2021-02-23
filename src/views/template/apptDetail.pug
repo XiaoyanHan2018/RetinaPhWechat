@@ -1,0 +1,47 @@
+#appt-detail-con.appt-detail-con
+  .appt-detail-mask-layer
+  .appt-detial-main-con
+    .appt-detail-hader
+      .appt-detail-header-left-area
+        span.go-confirm-title(data-bind='i18n.appt.title.confirm')
+        span.go-confirmed-title(data-bind='i18n.appt.title.confirmed')
+        span.go-confirm-desc(data-bind='i18n.appt.title.confirm.desc')
+        span.go-confirmed-desc(data-bind='i18n.appt.title.confirmed.desc')
+        span.visited-title(data-bind='i18n.appt.title.visited')
+        span.expired-title(data-bind='i18n.appt.title.expired')
+        span.expired-desc(data-bind='i18n.appt.title.expired.desc')
+      .appt-detail-header-action-bar
+        .change-time-button
+          i.iconfont.icon-ic_mode_edit_px
+          span(data-bind='i18n.appt.btn.reset.time')
+    ul.time-sel-area
+    .appt-detail-info-con
+      ul.appt-detail-info-list
+        li.account-info
+          .area
+            .left-area
+              span.title
+              .desc
+                label(data-bind='i18n.appt.label.user.ID')
+                span.val
+            .action-bar
+              span(data-bind='i18n.appt.btn.view.rpt')
+        li.contact-info
+          .area
+            .left-area
+                span.title(data-bind='i18n.appt.label.contact.number')
+                .desc
+                  span.val
+            .action-bar
+                a(data-bind='i18n.appt.btn.phone.call')
+        li.address-info
+          .area
+            .left-area
+                label.title(data-bind='i18n.appt.label.address')
+                .desc
+                  span.val
+    .change-time-con
+    .appt-detail-footer
+      .btn-confirm-appt(data-bind='i18n.appt.btn.confirm')
+      .btn-renew-appt(data-bind='i18n.appt.btn.renew' active='true')
+      .btn-change-appt(data-bind='i18n.appt.btn.change.time' active='true')

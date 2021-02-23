@@ -1,0 +1,57 @@
+{
+  "name": "wechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run build && npm run build-ts && npm run watch",
+    "dev-with-backend": "npm run build && npm run watch-b",
+    "start": "npm run build && npm run nodemon",
+    "nodemon": "ts-node startServer.ts",
+    "nodemonDev": "nodemon devServer.ts",
+    "nodemonDevBE": "nodemon devBESderver.ts",
+    "build-pug": "pug src -o dist",
+    "build": "npm run copy-static-assets && gulp && npm run build-pug",
+    "watch": "concurrently -k -n js,json,server -c green,yellow,cyan \"npm run watch-ts\" \"npm run watch-sass\" \"npm run nodemonDev\"",
+    "watch-b": "concurrently -k -n js,json,server -c green,yellow,cyan \"npm run watch-ts\" \"npm run watch-sass\" \"npm run nodemonDevBE\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "watch-sass": "node-sass src/css/main.scss dist/css/main.css -w",
+    "copy-static-assets": "ts-node copyStaticAssets.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@types/express": "^4.17.2",
+    "@types/pug": "^2.0.4",
+    "@types/shelljs": "^0.8.6",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "concurrently": "^5.0.2",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "http-proxy-middleware": "^1.0.6",
+    "node-sass": "^4.13.0",
+    "nodemon": "^2.0.2",
+    "pug": "^2.0.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "shelljs": "^0.8.3",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.7.4"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src/**/*"
+    ],
+    "exec": "npm run copy-static-assets && npm run build-pug && ts-node ",
+    "ext": "pug,html,js,json,properties"
+  },
+  "dependencies": {}
+}

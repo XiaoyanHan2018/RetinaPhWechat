@@ -1,0 +1,13 @@
+.msg-box-con
+  .msg-box-main
+    .title(data-bind='i18n.appt.msg.title.confirm.failed')
+    .desc(data-bind='i18n.appt.msg.desc.confirm.failed')
+    .actions
+      .close-btn(data-bind='i18n.appt.msg.btn.txt')
+script.
+  const $btn = document.querySelector('div.msg-box-con>.msg-box-main>.actions>.close-btn');
+  const $msgBox = document.querySelector('div.msg-box-con');
+  $btn.addEventListener('touchend',  () => {
+    customDispatch('voxelcloudMobileGoRefresh');
+    $msgBox.setAttribute('show', 'false');
+  });

@@ -1,0 +1,24 @@
+{
+    
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "strictFunctionTypes": false,
+        "target": "ES3",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        // "presets": ["@babel/preset-typescript"],
+        // "rootDir": "./src/",
+        "paths": {
+            "*": [ "node_modules/*" ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

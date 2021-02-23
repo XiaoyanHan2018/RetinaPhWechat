@@ -1,0 +1,116 @@
+#rpt-del-con.rpt-del-con
+  .header
+    .left-area
+      .title(data-bind='i18n.report.pge.title') ${i18n.report.pge.title}
+      .time
+        label.label(data-bind='i18n.report.label.check.time') ${i18n.report.label.check.time}
+        span.date-time(data-bind='dataModel.CUR_RPT.exam.examTime')
+    .right-area
+      img(src='./images/headericon.svg')
+  .main-con
+    ul.rpt-del
+      li
+        .left-area
+          .icon
+            i.group-icon.iconfont.icon-how_to_reg-px
+          .line
+        .right-area
+          .tab-header.patient-info
+            label.label(data-bind='i18n.report.label.patient.id') ${i18n.report.label.patient.id}
+            span.value(data-bind='dataModel.CUR_RPT.patient.mobile')
+          .del-con.no-group
+            .del-row(mode='3.8-2-4.2')
+              .del-field-con
+                label.label(data-bind='i18n.report.label.name') ${i18n.report.label.name}
+                span.value(data-bind='dataModel.CUR_RPT.patient.name')
+              .del-field-con
+                label.label(data-bind='i18n.report.label.gender') ${i18n.report.label.gender}
+                span.value(data-bind='dataModel.CUR_RPT.patient.gender' data-formatter='format_gender')
+              .del-field-con
+                label.label(data-bind='i18n.report.label.birthday') ${i18n.report.label.birthday}
+                span.value(data-bind='dataModel.CUR_RPT.patient.birthday')
+            .del-row.history
+              .del-field-con
+                label.label(data-bind='i18n.report.label.history') ${i18n.report.label.history}
+                span.empty(data-bind='i18n.report.label.no.history') ${i18n.report.label.no.history}
+                span.value(data-bind='dataModel.CUR_RPT.patient.history' data-formatter='empty_check')
+      li
+        .left-area
+          .icon
+            i.group-icon.iconfont.icon-ic_verified_user_p
+          .line
+        .right-area
+          .tab-header
+            label.label(data-bind='i18n.report.pge.tab.exam.results') ${i18n.report.pge.tab.exam.results}
+          .del-con.no-group
+            //- .del-row
+            //-   .del-field-con
+            //-     label.label(data-bind='i18n.report.label.DR.and.DME') ${i18n.report.label.DR.and.DME}
+            //-     span.value(data-bind='dataModel.CUR_RPT.exam.dr_diagnosis')
+            .del-row
+              .del-field-con
+                label.label(data-bind='i18n.report.label.other.dis') ${i18n.report.label.other.dis}
+                span.empty(data-bind='i18n.report.no.disease') ${i18n.report.no.disease}
+                span.value(data-bind='dataModel.CUR_RPT.exam.disease' data-formatter='empty_check')
+          .tab-header
+            label.label(data-bind='i18n.report.pge.tab.referral.and.recs') ${i18n.report.pge.tab.referral.and.recs}
+          .del-con.no-group
+            .del-row
+              .del-field-con
+                label.label(data-bind='i18n.report.label.referral.and.checkback') ${i18n.report.label.referral.and.checkback}
+                span.empty(data-bind='i18n.report.label.no.referral.and.checkback') ${i18n.report.label.no.referral.and.checkback}
+                span.value(data-bind='dataModel.CUR_RPT.exam.transfer_reexam' data-formatter='empty_check')
+            .del-row
+              .del-field-con
+                label.label(data-bind='i18n.report.label.medical.advice') ${i18n.report.label.medical.advice}
+                span.empty(data-bind='i18n.report.label.no.medical.advice') ${i18n.report.label.no.medical.advice}
+                span.value(data-bind='dataModel.CUR_RPT.exam.comment' data-formatter='empty_check')
+      li
+        .left-area
+          .icon
+            i.group-icon.iconfont.icon-image_search-px(style='font-size:1.25rem')
+          .line
+        .right-area
+          .tab-header
+            label.label(data-bind='i18n.report.pge.tab.findings') ${i18n.report.pge.tab.findings}
+          .del-con.findings
+            .del-row
+              .del-field-con
+                label.label(data-bind='i18n.report.label.photo.quality') ${i18n.report.label.photo.quality}
+                span.value(data-bind='dataModel.CUR_RPT.photo.quality')
+            .del-row
+              .del-field-con
+                label.label(data-bind='i18n.report.lagbel.photo.finds') ${i18n.report.lagbel.photo.finds}
+                span.value(data-bind='dataModel.CUR_RPT.photo.lesion' data-formatter='lesions')
+            .del-row
+              span.data-binding(data-bind='dataModel.CUR_RPT.photo.photo_list' data-formatter='fragmentPhoto')
+              //- .photo-img-con
+              //-   span 右眼:1
+              //-   img.photo-img(src='./images/small.png' alt='i18n.report.pge.group.right.eye')
+              //- .photo-img-con
+              //-   span 右眼:1
+              //-   img.photo-img(src='./images/small_0.png' alt='i18n.report.pge.group.right.eye')
+  .footer-con
+    ul.hospital-info
+      li
+        i.iconfont.icon-ic_done_px
+        .del-con
+          label.label(data-bind='i18n.report.label.doctor') ${i18n.report.label.doctor}
+          value.name(data-bind='dataModel.CUR_RPT.exam.uploader.name')
+          value.co-name(data-bind='dataModel.CUR_RPT.exam.uploader.org')
+      li
+        i.iconfont.icon-ic_done_all_px
+        .del-con
+          label.label(data-bind='i18n.report.label.audit.doctor') ${i18n.report.label.audit.doctor}
+          value.name(data-bind='dataModel.CUR_RPT.exam.viewer.name')
+          value.co-name(data-bind='dataModel.CUR_RPT.exam.viewer.org')
+          label.label(data-bind='i18n.report.label.audit.date') ${i18n.report.label.audit.date}
+          value.date(data-bind='dataModel.CUR_RPT.exam.checkTime') ${dataModel.CUR_RPT.exam.checkTime}
+    .voxelcloud-info
+      .left-area
+        img(src='./images/favicon.png').logo
+        span.co-name Voxelcloud
+        span.desc(data-bind='i18n.report.desc.support.by.voxelcloud') ${i18n.report.desc.support.by.voxelcloud}
+      img.qr-code(src='./images/wechat.jpg')
+  .rpt-del-dating-state-btn
+    span.confirmed(data-bind='dataModel.CUR_RPT.APPT.status' data-formatter='formatAPPTStatus') ${i18n.report.btn.view.appt}

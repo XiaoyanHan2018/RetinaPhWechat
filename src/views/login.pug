@@ -1,0 +1,18 @@
+#login-con.login-con
+  //- .login-header
+  //-   .title(data-bind='i18n.login.header.title')
+  //-   .desc(data-bind='i18n.login.header.desc')
+  .login-bg
+    img(src='./images/bg-svg.svg')
+    .login-main-con(mode='INP_ID')
+      input.login-inp(type='text' value='' placeholder='' data-bind='placeholder-i18n.login.id.inp.placeholder' onclick="this.focus();")
+      input.login-pwd-inp(type='password' value='' placeholder='' data-bind='placeholder-i18n.login.pwd.inp.placeholder' onclick="this.focus();")
+      i.btn-switch-pw-mode.iconfont.icon-ic_remove_red_eye_
+      lable.login-pwd-inp-info(data-bind='i18n.login.pwd.inp.info')
+      lable.login-msg-pwd-inp-invalid(data-bind='i18n.login.msg.pwd.inp.invalid')
+      lable.login-msg-inp-invalid(data-bind='i18n.login.msg.inp.invalid')
+      .btn-next-step(data-bind='i18n.login.btn.next.step')
+      .btn-login(data-bind='i18n.login.btn.login')
+  .login-footer
+    img(src='./images/logo.svg')
+    .desc(data-bind='i18n.voxelcloud.desc')
