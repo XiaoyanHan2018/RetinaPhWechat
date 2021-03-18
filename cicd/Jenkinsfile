@@ -19,7 +19,7 @@ node {
         stage('Install') {
             nodejs('nodejs12.18') {
                 sh 'npm install'
-        //      sh 'npm run-script build'
+                sh 'npm run-script build'
                 }
         }
 
@@ -42,10 +42,6 @@ node {
     } finally {
         // send email to notify developers
         notifyBuild(currentBuild.result == 'FAILED' ? '' : additionalInfo)
-        if (currentBuild.result != 'FAILED') {
-            def buildName = getBuildName()
-            sh "curl -H 'Content-Type: application/json' -X POST -d '{\"tag\": \"$buildName\", \"repo\":\"retina-wechat-doctor\"}' http://101.132.135.97:9000/docker/api/deploy | echo"
-        }
 
     }
 }

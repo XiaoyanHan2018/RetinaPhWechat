@@ -1,0 +1,28 @@
+upstream platform_backend {
+    # k8s 后端service
+    server  ${BACKEND_SERVICE};
+}
+
+server{
+    listen 3000;
+    server_name localhost;
+    client_max_body_size 1024m;
+    add_header Cache-Control 'no-store';
+    root /usr/src/wechat/dist;
+
+    location / {
+        try_files $uri $uri/ /index.html =404;
+	    index index.html;
+        add_header Access-Control-Allow-Origin *;
+	}
+    location /api/ {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_pass http://platform_backend;
+        proxy_connect_timeout 3600;
+        proxy_send_timeout 3600;
+        proxy_read_timeout 3600;
+    }
+
+}
